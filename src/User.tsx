@@ -1,4 +1,4 @@
-import { useParams } from "react-router";
+import { Link, useParams } from "react-router";
 import type { User } from "./interface";
 import { useEffect, useState } from "react";
 
@@ -32,10 +32,16 @@ export function User() {
     <>
       {isLoaded ? (
         <div className="card">
-            <div className="card-body">
-                <h5 className="card-title">{chosenUser?.name}</h5>
-                <p>{chosenUser?.email} - {chosenUser?.job}</p>
-            </div>
+          <div className="card-body">
+            <h5 className="card-title">Name: {chosenUser?.name}</h5>
+            <p>
+              Email: {chosenUser?.email} <br/>
+              Job: {chosenUser?.job}
+            </p>
+            <Link to="/" className="btn btn-secondary mt-3">
+              ← Back to list
+            </Link>
+          </div>
         </div>
       ) : (
         <div className="spinner-border" role="status">
